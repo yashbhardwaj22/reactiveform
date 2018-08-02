@@ -1,0 +1,94 @@
+<div class="jumbotron">
+  <div class="row">
+    
+    <div class="col-md-7 offset-md-4">
+        <div class="container">
+
+  
+<div style="text-align:center">
+
+  <h1>
+    SignUp
+  </h1>
+  <form [formGroup]="registerForm" (ngSubmit)="store()">
+    <div>
+
+
+      <label>
+        First Name:
+        <input type="text" formControlName="firstname">
+        <div *ngIf="!registerForm.controls['firstname'].valid  && (registerForm.controls['firstname'].dirty || registerForm.controls['firstname'].touched)">"Please enter alphabets only."</div>
+      </label>
+      <br />
+      <br />
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastname">
+        <div *ngIf="!registerForm.controls['lastname'].valid  && (registerForm.controls['lastname'].dirty || registerForm.controls['lastname'].touched) ">"Please enter alphabets only."</div>
+      </label>
+
+
+    </div>
+    <br />
+    <div>
+      <label>
+        Email:
+        <input type="email" formControlName="email">
+        <div *ngIf="!registerForm.controls['email'].valid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">"Please enter a valid email address."</div>
+      </label>
+      <br />
+      <br />
+      <label>
+        Contact no.:
+        <input type="text" formControlName="number">
+        <div *ngIf="!registerForm.controls['number'].valid  && (registerForm.controls['number'].dirty || registerForm.controls['number'].touched)">"Please enter 10 digit contact number"!</div>
+      </label>
+    </div>
+    <br />
+    <div>
+
+      <label>
+        Password:
+
+        <input type="{{type}}" formControlName="pass" ><i class="far fa-eye"(click)="toggle()"></i>
+        <img src="http://www.simpleicon.com/wp-content/uploads/eye1.png" height="40px" width="40px" (mousedown)="show()" (mouseup)= "hide()"/>
+        <div *ngIf="!registerForm.controls['pass'].valid   && (registerForm.controls['pass'].dirty || registerForm.controls['pass'].touched)">Invalid Password!</div>
+      </label>
+      <br />
+      <br />
+
+      <label>
+        Confirm Password:
+        <input type="{{type}}" formControlName="passcon" (keyup)="pass1()"><i (click)="toggle()"></i>
+        <div *ngIf="!test && (registerForm.controls['passcon'].dirty || registerForm.controls['passcon'].touched) ">Wrong Password!</div>
+
+      </label>
+
+
+    </div>
+    <br />
+    <div>
+      <label>
+        Empid:
+        <input type="text" formControlName="empid" required>
+        <div *ngIf="!registerForm.controls['empid'].valid   && (registerForm.controls['empid'].dirty || registerForm.controls['empid'].touched)">Empid:-Digits[0-9] only four digits!</div>
+      </label>
+      <br />
+      <br />
+      <label>
+        Gender:
+        <input type="text" formControlName="gen" required>
+        <div *ngIf="!registerForm.controls['gen'].valid  && (registerForm.controls['gen'].dirty || registerForm.controls['gen'].touched)">Gender:-Alphabets[A-Z a-z]</div>
+      </label>
+    </div>
+    <br />
+    <div>
+      <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+    </div>
+
+  </form>
+</div>
+</div>
+</div>
+</div>
+</div>
