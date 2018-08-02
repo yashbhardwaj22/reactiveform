@@ -8,14 +8,15 @@ import { RegisterServiceService } from '../register-service.service';
 })
 export class NewpageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private RegisterServiceService : RegisterServiceService) { }
   editform()
   {
     this.router.navigate(['/register']);
   }
   data:any;
   ngOnInit() {
-    this.data = JSON.parse(localStorage.getItem('Data'))
+    // this.data = JSON.parse(localStorage.getItem('Data'))
+    this.data=this.RegisterServiceService.getdata();
   }
 
 }
